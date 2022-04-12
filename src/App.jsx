@@ -1,21 +1,23 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import {BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
+import React from "react";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Product from "./pages/Product";
+import Customer from "./pages/Customer";
 
 function App() {
   return (
-    <BrowserRouter>
-    <div className="pt-20">
-      <Navbar />
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/about" component={About} exact />
-      </Switch>
-    </div>
-    </BrowserRouter>
-  )
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/customer" element={<Customer />} />
+          <Route path="/product" element={<Product />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
